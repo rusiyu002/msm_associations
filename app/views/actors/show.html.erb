@@ -18,7 +18,13 @@
       <dd><%= @actor.image_url %></dd>
 
       <dt>Number of films charactered</dt>
-      <dd><%= Character.where(:actor_id =>@actor.id).count%></dd>
+      <dd><%= @actor.characters.count %></dd>
+      <!-- <dd><%= Character.where(:actor_id =>@actor.id).count%></dd> -->
+
+      <dt>Movies</dt>
+       <% @actor.movies.each do |movie| %>
+       <dd><%= movie.title %></dd>
+       <% end %>
 
     </dl>
 
@@ -36,13 +42,13 @@
   </div>
 </div>
 
-<ul>
+<!-- <ul>
   <% @actor.characters.each do |character| %>
   <li>
     <%= character.actor.name %>
   </li>
   <%end%>
-</ul>
+</ul> -->
 
 <div class="row">
   <div class="col-md-12">
@@ -62,11 +68,6 @@
 
       <!-- Label and input for actor_id -->
       <div class="form-group">
-        <!-- <label for="actor_id" class="control-label">
-          Actor
-        </label> -->
-        <!-- <%= select_tag(:actor_id, options_from_collection_for_select(Actor.all,
-        :id, :name), :class => "form-control") %> -->
         <input type="hidden" name="actor_id" value="<%=@actor.id%>">
       </div>
 

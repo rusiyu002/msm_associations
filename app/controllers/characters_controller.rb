@@ -7,7 +7,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
-
+    @actor = Actor.new
     render("characters/show.html.erb")
   end
 

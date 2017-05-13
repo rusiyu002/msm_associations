@@ -28,6 +28,10 @@
         </a>
       </dd>
 
+      <dt>Actors</dt>
+       <% @movie.actors.each do |actor| %>
+       <dd><%= actor.name %></dd>
+       <% end %>
 
     </dl>
 
